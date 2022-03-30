@@ -7,7 +7,25 @@ public enum Direction {
     this.val = val;
   }
 
-  static Direction fromVal(int val) {
+  public String toString() {
+    switch (this.val) {
+    case 0:
+      return "Left";
+    case 1:
+      return "Right";
+    case 2:
+      return "Up";
+    case 3:
+      return "Down";
+    }
+    throw new IllegalArgumentException("Direzione non implementata");
+  }
+
+  public static Direction randomDirection() {
+    return Direction.values()[Math.abs(new Random().nextInt() % Direction.values().length)];
+  }
+
+  public static Direction fromVal(int val) {
     for (Direction d : Direction.values()) {
       if (d.val == val)
         return d;
@@ -15,7 +33,7 @@ public enum Direction {
     return null;
   }
 
-  static Direction[] getFirstDirections(int numDirections) {
+  public static Direction[] getFirstDirections(int numDirections) {
     Direction[] dirs = new Direction[numDirections];
     Direction[] values = Direction.values();
     for (int i = 0; i < numDirections; i++) {

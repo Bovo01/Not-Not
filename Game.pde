@@ -1,14 +1,14 @@
-private class Solution {
-  public Direction dirSolution;
-  public Colore colSolution;
-}
-
 public class Game {
   private Porta[] porte;
   private Solution solution;
 
   public Game() {
     generaPorte(4);
+    generateSolution();
+  }
+
+  public void generateSolution() {
+    solution = new Solution(Direction.randomDirection());
   }
 
   public void show() {
@@ -23,6 +23,11 @@ public class Game {
     for (Porta p : porte) {
       p.show(DIM_SCENA / 2);
     }
+    // Frase
+    textAlign(CENTER, CENTER);
+    textSize(50);
+    fill(255);
+    text(solution.toString(), 0, 0);
 
     pop();
   }

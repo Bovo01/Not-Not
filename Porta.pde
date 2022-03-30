@@ -1,5 +1,3 @@
-
-
 public class Porta {
   private static final float PORT_WIDTH = 50f;
   private static final float PORT_HEIGHT = 20f;
